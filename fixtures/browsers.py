@@ -30,6 +30,8 @@ def initialize_browser_state(playwright: Playwright) -> Page:
 
     page.context.storage_state(path="browser-state.json")
 
+    browser.close()
+
 
 @pytest.fixture(scope="function")
 def chromium_page_with_state(initialize_browser_state, playwright: Playwright) -> Page:
