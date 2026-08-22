@@ -55,5 +55,5 @@ def test_create_course(create_course_page: CreateCoursePage, courses_list_page: 
         title="Playwright",
         max_score="100",
         min_score="10",
-        estimated_time="2 weeks"
+        estimated_time="2 weeks" 
     )
