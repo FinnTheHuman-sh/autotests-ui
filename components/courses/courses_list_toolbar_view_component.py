@@ -11,8 +11,8 @@ class CoursesListToolbarViewComponent(BaseComponent):
     def __init__(self, page: Page):
         super().__init__(page)
 
-        self.title = Text(page, locator='courses-list-toolbar-title-text', name='Title')
-        self.create_course_button = Button(page, locator='courses-list-toolbar-create-course-button', name='Button')
+        self.title = Text(page, 'courses-list-toolbar-title-text', 'Title')
+        self.create_course_button = Button(page, 'courses-list-toolbar-create-course-button', 'Button')
 
     def check_visible(self):
         self.title.check_visible()

@@ -1,4 +1,4 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 
 from components.base_component import BaseComponent
 from components.courses.course_view_menu_component import CourseViewMenuComponent
@@ -12,13 +12,14 @@ class CourseViewComponent(BaseComponent):
 
         self.menu = CourseViewMenuComponent(page)
 
-        self.title = Text(page, locator='course-widget-title-text', name='Title')
-        self.image = Image(page, locator='course-preview-image', name='Image')
-        self.max_score_text = Text(page, locator='course-max-score-info-row-view-text', name='Max score')
-        self.min_score_text = Text(page, locator='course-min-score-info-row-view-text', name='Min score')
-        self.estimated_time_text = Text(page, locator='course-estimated-time-info-row-view-text', name='Estimated time')
+        self.title = Text(page, 'course-widget-title-text', 'Title')
+        self.image = Image(page, 'course-preview-image', 'Preview')
+        self.max_score_text = Text(page, 'course-max-score-info-row-view-text', 'Max score')
+        self.min_score_text = Text(page, 'course-min-score-info-row-view-text', 'Min score')
+        self.estimated_time_text = Text(page, 'course-estimated-time-info-row-view-text', 'Estimated time')
 
     def check_visible(self, index: int, title: str, max_score: str, min_score: str, estimated_time: str):
+        # Используем nth=index для поиска элементов по индексу
         self.image.check_visible(nth=index)
 
         self.title.check_visible(nth=index)
@@ -27,8 +28,8 @@ class CourseViewComponent(BaseComponent):
         self.max_score_text.check_visible(nth=index)
         self.max_score_text.check_have_text(f"Max score: {max_score}", nth=index)
 
-        self.min_score_text.check_visible()
+        self.min_score_text.check_visible(nth=index)
         self.min_score_text.check_have_text(f"Min score: {min_score}", nth=index)
 
-        self.estimated_time_text.check_visible()
+        self.estimated_time_text.check_visible(nth=index)
         self.estimated_time_text.check_have_text(f"Estimated time: {estimated_time}", nth=index)
