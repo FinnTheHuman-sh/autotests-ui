@@ -20,21 +20,21 @@ class CreateCoursePage(BasePage):
 
         self.create_course_form = CreateCourseFormComponent(page)
         self.create_exercise_form = CreateCourseExerciseFormComponent(page)
-        self.create_course_toolbar = CreateCourseToolbarViewComponent(page)
+        self.create_course_toolbar_view = CreateCourseToolbarViewComponent(page)
         self.create_course_exercises_toolbar = CreateCourseExercisesToolbarViewComponent(page)
 
     def check_visible_create_course_title(self):
-        self.create_course_toolbar.title.check_visible()
-        self.create_course_toolbar.title.check_have_text('Create course')
+        self.create_course_toolbar_view.title.check_visible()
+        self.create_course_toolbar_view.title.check_have_text('Create course')
 
     def click_create_course_button(self):
-        self.create_course_toolbar.create_course_button.click()
+        self.create_course_toolbar_view.create_course_button.click()
 
     def check_visible_create_course_button(self):
-        self.create_course_toolbar.create_course_button.check_visible()
+        self.create_course_toolbar_view.create_course_button.check_visible()
 
     def check_disabled_create_course_button(self):
-        self.create_course_toolbar.create_course_button.check_disabled()
+        self.create_course_toolbar_view.create_course_button.check_disabled()
 
     def check_visible_exercises_empty_view(self):
         self.exercises_empty_view.check_visible(

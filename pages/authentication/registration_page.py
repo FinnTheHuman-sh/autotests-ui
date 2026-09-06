@@ -5,12 +5,13 @@ from elements.button import Button
 from pages.base_page import BasePage
 from elements.link import Link
 
+import re
 
 class RegistrationPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
 
-        self.registration_form_component = RegistrationFormComponent(page)
+        self.registration_form = RegistrationFormComponent(page)
 
         self.registration_button = Button(page, locator='registration-page-registration-button', name='Button')
         self.login_link = Link(page, locator='registration-page-login-link', name='Link')
@@ -20,3 +21,5 @@ class RegistrationPage(BasePage):
 
     def click_login_link(self):
         self.login_link.click()
+        # Добавили проверку
+        self.check_current_url(re.compile(".*/#/auth/login"))
