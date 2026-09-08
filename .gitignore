@@ -1,0 +1,7 @@
+/tests/authentication/__pycache__
+/tests/courses/__pycache__
+/tests/dashboard/__pycache__
+/tests/pytest/__pycache__
+/tools/allure/__pycache__
+/allure-report
+/allure-results
