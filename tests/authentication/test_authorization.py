@@ -1,7 +1,6 @@
 import allure
 import pytest
-from allure_commons.types import Severity # Импортируем enum Severity из Allure
-
+from allure_commons.types import Severity  # Импортируем enum Severity из Allure
 
 from pages.authentication.login_page import LoginPage
 from pages.authentication.registration_page import RegistrationPage
@@ -30,7 +29,7 @@ class TestAuthorization:
             ("  ", "password")
         ]
     )
-    @allure.tag(AllureTag.USER_LOGIN) # Используем enum
+    @allure.tag(AllureTag.USER_LOGIN)  # Используем enum
     @allure.title("User login with wrong email or password")
     @allure.severity(Severity.CRITICAL)  # Добавили severity
     def test_wrong_email_or_password_authorization(self, login_page: LoginPage, email: str, password: str):
